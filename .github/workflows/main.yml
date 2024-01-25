@@ -8,14 +8,14 @@ jobs:
   run_pull:
     name: run pull
     runs-on: ubuntu-latest
-  
+    environment: ssh_key
     steps:
     - name: install ssh keys
       # check this thread to understand why its needed:
       # https://stackoverflow.com/a/70447517
       run: |
-        echo "${{ env.SSH_HOST }}"
-        echo ${{ env.SSH_USER }}  
+        echo "${{ secrets.SSH_HOST }}"
+        echo '${{ secrets.SSH_USER }}'
         echo ${{ vars.WORK_DIR }}  
       
     # ssh-keyscan -H ${{ env.SSH_HOST }} > ~/.ssh/known_hosts
