@@ -14,7 +14,7 @@ jobs:
       # check this thread to understand why its needed:
       # https://stackoverflow.com/a/70447517
       run: |
-        touch ~/.ssh/id_rsa
+        install -m 600 -D /dev/null ~/.ssh/id_rsa
         echo "${{ env.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
         ssh-keyscan -H ${{ env.SSH_HOST }} > ~/.ssh/known_hosts
     - name: connect and pull
