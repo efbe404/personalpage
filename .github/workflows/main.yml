@@ -17,7 +17,7 @@ jobs:
         install -m 600 -D /dev/null ~/.ssh/id_rsa
         echo "${{ env.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
         echo ${{ env.SSH_HOST }}
-        echo ${{ SSH_HOST }}
+        echo $SSH_HOST
       
         # ssh-keyscan -H ${{ env.SSH_HOST }} > ~/.ssh/known_hosts
     # - name: connect and pull
