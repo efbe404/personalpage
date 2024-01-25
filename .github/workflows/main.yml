@@ -15,11 +15,11 @@ jobs:
       # https://stackoverflow.com/a/70447517
       run: |
         install -m 600 -D /dev/null ~/.ssh/id_rsa
-        echo "${{ env.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-        echo ${{ env.SSH_HOST }}
+        echo "${{ secrets.SSH_PRIVATE_KEY }}"
+        echo ${{ env.SSH_HOST }}  
         echo $SSH_HOST
       
-        # ssh-keyscan -H ${{ env.SSH_HOST }} > ~/.ssh/known_hosts
+    # ssh-keyscan -H ${{ env.SSH_HOST }} > ~/.ssh/known_hosts
     # - name: connect and pull
     #   run: ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} "cd ${{ env.WORK_DIR }} && git checkout ${{ env.MAIN_BRANCH }} && git pull && exit"
     # - name: cleanup
